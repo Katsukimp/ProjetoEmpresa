@@ -1,0 +1,85 @@
+﻿@model IEnumerable<HiringTest.ViewModel.AccountViewModel>
+
+@{
+    ViewData["Title"] = "Contas bancárias";
+}
+
+<h1>Contas Bancárias</h1>
+
+<p>
+    <a asp-action="Create">Nova Conta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreviousBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDebt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCredit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinalBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreviousBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDebt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCredit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("Depositar", "Deposit", new { id = item.Id }) |
+                @Html.ActionLink("Sacar", "Withdraw", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
